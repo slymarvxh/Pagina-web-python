@@ -1,0 +1,107 @@
+
+ body {
+    margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    .encabezado {
+      background: linear-gradient(to right, #4b0082, #93e22b);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .encabezado h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .encabezado p {
+      font-size: 20px;
+      color: #ddd;
+    }
+
+    .contenido {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .imagen-principal {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .imagen-principal img {
+      width: 180px;
+      border-radius: 10px;
+    }
+
+    .caption {
+      font-size: 14px;
+      color: #bbb;
+      margin-top: 5px;
+    }
+
+    .tutoriales {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .tutorial {
+      flex: 1 1 300px;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .tutorial h2 {
+      color: #ff79c6;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .tutorial ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .tutorial ul li {
+      margin-bottom: 6px;
+    }
+
+    .video-section {
+      margin-bottom: 50px;
+    }
+
+    .video-section h2 {
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .video {
+      margin-bottom: 30px;
+    }
+
+    .codigo pre {
+      background-color: #1e1e1e;
+      color: #00ff90;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      margin-bottom: 20px;
+    }
+
+    .pie {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }

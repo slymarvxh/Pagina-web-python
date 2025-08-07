@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+     <link rel="stylesheet" href="Estilo 4.css">
+</head>
+<body>
+    <div class="seccion">
+  <h2>Cuestionario de Python</h2>
+
+  <p><strong>Introducción:</strong></p>
+  <p>Este examen evalúa los conocimientos fundamentales adquiridos en Python. Está compuesto por 10 preguntas de opción múltiple. Solo una respuesta es correcta en cada caso.</p>
+
+  <p><strong>Instrucciones:</strong></p>
+  <ul>
+    <li>Selecciona la opción que consideres correcta.</li>
+    <li>Presiona <em>Enviar respuestas</em> al terminar para conocer tu resultado.</li>
+    <li>Tiempo estimado: 5 minutos.</li>
+  </ul>
+
+  <form id="quiz-form">
+    <div>
+      <h3>1. ¿Qué función se utiliza para imprimir en la consola?</h3>
+      <label><input type="radio" name="q1" value="a"> echo()</label><br>
+      <label><input type="radio" name="q1" value="b"> print()</label><br>
+      <label><input type="radio" name="q1" value="c"> console.log()</label>
+    </div><br>
+
+    <div>
+      <h3>2. ¿Cuál es el tipo de dato para texto?</h3>
+      <label><input type="radio" name="q2" value="a"> int</label><br>
+      <label><input type="radio" name="q2" value="b"> str</label><br>
+      <label><input type="radio" name="q2" value="c"> list</label>
+    </div><br>
+
+    <div>
+      <h3>3. ¿Qué palabra se usa para un bucle?</h3>
+      <label><input type="radio" name="q3" value="a"> repeat</label><br>
+      <label><input type="radio" name="q3" value="b"> for</label><br>
+      <label><input type="radio" name="q3" value="c"> loop</label>
+    </div><br>
+
+    <div>
+      <h3>4. ¿Qué símbolo inicia un comentario en Python?</h3>
+      <label><input type="radio" name="q4" value="a"> //</label><br>
+      <label><input type="radio" name="q4" value="b"> <!-- --></label><br>
+      <label><input type="radio" name="q4" value="c"> #</label>
+    </div><br>
+
+    <div>
+      <h3>5. ¿Cómo defines una función?</h3>
+      <label><input type="radio" name="q5" value="a"> function hola():</label><br>
+      <label><input type="radio" name="q5" value="b"> def hola():</label><br>
+      <label><input type="radio" name="q5" value="c"> define hola():</label>
+    </div><br>
+
+    <div>
+      <h3>6. ¿Cuál estructura almacena clave:valor?</h3>
+      <label><input type="radio" name="q6" value="a"> lista</label><br>
+      <label><input type="radio" name="q6" value="b"> diccionario</label><br>
+      <label><input type="radio" name="q6" value="c"> tupla</label>
+    </div><br>
+
+    <div>
+      <h3>7. ¿Qué operador compara igualdad?</h3>
+      <label><input type="radio" name="q7" value="a"> =</label><br>
+      <label><input type="radio" name="q7" value="b"> ==</label><br>
+      <label><input type="radio" name="q7" value="c"> :=</label>
+    </div><br>
+
+    <div>
+      <h3>8. ¿Cómo se importa un módulo?</h3>
+      <label><input type="radio" name="q8" value="a"> use math</label><br>
+      <label><input type="radio" name="q8" value="b"> include math</label><br>
+      <label><input type="radio" name="q8" value="c"> import math</label>
+    </div><br>
+
+    <div>
+      <h3>9. ¿Qué hace <code>len()</code>?</h3>
+      <label><input type="radio" name="q9" value="a"> Elimina un valor</label><br>
+      <label><input type="radio" name="q9" value="b"> Calcula el promedio</label><br>
+      <label><input type="radio" name="q9" value="c"> Cuenta elementos</label>
+    </div><br>
+
+    <div>
+      <h3>10. ¿Qué imprime <code>print(2 ** 3)</code>?</h3>
+      <label><input type="radio" name="q10" value="a"> 6</label><br>
+      <label><input type="radio" name="q10" value="b"> 8</label><br>
+      <label><input type="radio" name="q10" value="c"> 9</label>
+    </div><br>
+
+    <button type="button" onclick="verificarCuestionario()">Enviar respuestas</button>
+  </form>
+
+  <div id="resultado" style="margin-top: 20px; font-size: 18px; color: #93e22b;"></div>
+</div>
+</body>
+<script>
+  function verificarCuestionario() {
+    const respuestas = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "c",
+      q5: "b",
+      q6: "b",
+      q7: "b",
+      q8: "c",
+      q9: "c",
+      q10: "b"
+    };
+
+    let correctas = 0;
+    let total = Object.keys(respuestas).length;
+    let sinResponder = [];
+
+    for (let clave in respuestas) {
+      const seleccionada = document.querySelector(`input[name="${clave}"]:checked`);
+      if (!seleccionada) {
+        sinResponder.push(clave);
+      } else if (seleccionada.value === respuestas[clave]) {
+        correctas++;
+      }
+    }
+
+    const resultadoDiv = document.getElementById("resultado");
+
+    if (sinResponder.length > 0) {
+      resultadoDiv.textContent = `⚠️ Por favor responde todas las preguntas antes de enviar. Preguntas sin responder: ${sinResponder.length}`;
+      resultadoDiv.style.color = "#ff5555";  // Color rojo para advertencia
+      return;
+    }
+
+    let mensaje = `Respuestas correctas: ${correctas} de ${total}`;
+    if (correctas === total) {
+      mensaje += " 🎉 ¡Excelente dominio!";
+      resultadoDiv.style.color = "#93e22b"; // verde
+    } else if (correctas >= 7) {
+      mensaje += " 💪 Buen trabajo, sigue practicando.";
+      resultadoDiv.style.color = "#93e22b"; // verde
+    } else if (correctas >= 4) {
+      mensaje += " 📘 Nivel aceptable, puedes mejorar.";
+      resultadoDiv.style.color = "#ffb347"; // amarillo anaranjado
+    } else {
+      mensaje += " 📚 Recomendamos repasar los conceptos básicos.";
+      resultadoDiv.style.color = "#ff5555"; // rojo
+    }
+
+    resultadoDiv.textContent = mensaje;
+  }
+</script>
+</html>
+
